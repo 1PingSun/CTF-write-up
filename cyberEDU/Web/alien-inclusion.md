@@ -23,6 +23,8 @@ Keep it local and you should be fine. The flag is in /var/www/html/flag.php.
 
 ### 建議防護與修補
 
-* 輸入驗證：限制可讀取的
+* 輸入驗證：透過白名單限制可讀取之路徑，避免機密檔案洩露。
 
 ## 心得
+
+在解這題時，我原本沒有考量到要如何同時存在 GET 和 POST，幸好 postman 的操作還算方便，我就嘗試在網址後方加入參數，並在 body 新增參數，就同時傳送 GET 和 POST 的參數了，過程還算順利，為什麼有同學說很難？
