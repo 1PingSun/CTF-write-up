@@ -19,7 +19,7 @@ Find the vulnerability and get the flag. The flag is located in a temporary fold
 5. 將網址路徑修改成 `/local?image_name=../../../../../../../tmp/flag`，發現仍無法找到檔案。
 6. 猜測其透過篩選 `../` 避免路徑遍歷。
 7. 但仍可透過將 `../` 修改成 `....//` 繞過驗證。
-8. 將網址路徑修改成 `/local?image_name=....//....//....//....//....//....//....//tmp//flag`。
+8. 將網址路徑修改成 `/local?image_name=....//....//....//....//....//....//....//tmp/flag`。
 9. 網頁自動下載一個 `local` 檔。
 10. 將該檔利用 `cat` 或文字編輯器等工具打開，就得到 flag 了！
 
