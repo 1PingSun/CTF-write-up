@@ -4,10 +4,16 @@ Author: 孫逸平
 
 Date: 2024-05-24
 
-Link: 
+Link: https://lotuxctf.com/challenges#Discord-3
 
 ## 題目說明
 
+加入我們的 Discord 伺服器
+
+Make sure you have joined our Discord server.
+
+
+Author：FlyDragon
 
 ## Write-up
 
