@@ -40,10 +40,13 @@ http://lotuxctf.com:20005
 
 ### 本題 CWE
 
-* 
+* CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 
 ### 建議防護與修補
 
-* 
+* 輸出編碼
+* Cookie 設為 HttpOnly
 
 ## 心得
+
+這題原本在 HTML 標籤中相加字串，後來發現不能這麼做，所以只好用 JavaScript 去寫。
