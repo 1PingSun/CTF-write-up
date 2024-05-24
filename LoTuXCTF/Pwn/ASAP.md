@@ -2,9 +2,9 @@
 
 Author: 孫逸平
 
-Date: 
+Date: 2024-05-24
 
-Link: 
+Link: https://lotuxctf.com/challenges#ASAP-8
 
 ## 題目說明
 
@@ -19,20 +19,50 @@ Author : FlyDragon
 
 nc lotuxctf.com 10000
 
-[server.py](LoTuXCTF/Pwn/src/server.py)
+[server.py](./src/server.py)
 
 ## Write-up
 
-1. 
-
-## 防護說明與建議
-
-### 本題 CWE
-
-* 
-
-### 建議防護與修補
-
-* 
-
-## 心得
+1. 撰寫程式解題：
+  ```python
+  from pwn import *
+  
+  host = 'lotuxctf.com'
+  port = 10000
+  
+  conn = remote(host, port)
+  
+  maxma = 100000000
+  minma = 1
+  
+  line = conn.recvline().decode()
+  h = "high"
+  l = "low"
+  c = "clear"
+  number = 1
+  while True:
+      number = int((maxma + minma) / 2)
+      conn.sendline(str(number))
+      line = conn.recvline().decode()
+      if(h in line.strip()):
+          minma = number
+      elif(l in line.strip()):
+          maxma = number
+      elif(c in line.strip()):
+          print(number)
+          break
+  line = conn.recvline().decode()
+  print(line.strip())
+  
+  for _ in range(101):
+      line = conn.recvuntil('=').decode()
+      a = line.strip()[0:-1].split("+")
+      conn.sendline(str(int(a[0]) + int(a[1])))
+  
+  line = conn.recvline().decode()
+  print(line.strip())
+  
+  print(number, line.strip())
+  
+  conn.close()
+  ```
